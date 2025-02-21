@@ -6,6 +6,6 @@ const calendarEventSchema = new mongoose.Schema({
   description: { type: String },
   date: { type: Date, required: true },
   utilisateur: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Utilisateur lié
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('CalendarEvent', calendarEventSchema);

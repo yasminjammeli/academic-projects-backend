@@ -9,9 +9,10 @@ async function addEventToGoogleCalendar(event) {
     const googleEvent = {
       summary: event.titre,
       description: event.description,
-      start: { dateTime: event.date.toISOString() },
-      end: { dateTime: new Date(event.date).setHours(event.date.getHours() + 1) }, // Durée 1h
+      start: { dateTime: event.date.toISOString(), timeZone: "UTC" },
+      end: { dateTime: new Date(event.date).toISOString(), timeZone: "UTC" } // Ajout du timeZone
     };
+    
 
     const response = await calendar.events.insert({
       calendarId: 'primary',

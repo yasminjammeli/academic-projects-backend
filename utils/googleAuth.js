@@ -54,3 +54,9 @@ function checkAndLoadToken(oAuth2Client) {
 
 const oAuth2Client = getOAuth2Client();
 checkAndLoadToken(oAuth2Client);
+
+module.exports = {
+  getAccessToken: getAccessToken,
+  checkAndLoadToken: checkAndLoadToken,
+  getOAuth2Client: getOAuth2Client
+}

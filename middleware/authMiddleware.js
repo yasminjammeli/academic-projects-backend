@@ -12,6 +12,7 @@ const authMiddleware = async (req, res, next) => {
     req.user = await User.findById(verified.id).select('-motDePasse');
     next();
   } catch (error) {
+    console.error(error);
     res.status(401).json({ message: 'Token invalide.' });
   }
 };
